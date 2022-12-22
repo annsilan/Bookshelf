@@ -1,0 +1,232 @@
+.body{
+    background-color: rgba(212, 210, 210, 0.37);
+    
+}
+.cursor{
+    cursor: pointer;
+}
+.bookshelf{
+    height: 250px;
+    background-image: url(Foto/book.jpg);
+    box-sizing: content-box;
+    background-size: cover;
+    background-position: center;
+    
+
+}
+.fon{
+    height: 250px;
+    background-color: rgba(30, 30, 31, 0.514);
+    box-sizing: content-box;
+}
+.titleBookshelf{
+    
+    color: white;
+    font-size: 80px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 70px;
+    
+}
+.addButton{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.addBut{
+    padding: 15px 25px;
+    margin: 30px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color: rgba(156, 145, 145, 0.315); 
+    border: 1px solid rgb(201, 201, 201); 
+    transition: background-color 300ms linear;
+    
+
+}
+.addBut:hover{
+    background-color:  rgba(77, 73, 73, 0.315);
+}
+.form{
+    display: none;
+}
+.formBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color:  rgb(114, 112, 112); 
+    background-color: rgba(30, 30, 31, 0.514);
+}
+.addForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    background-color: white;
+    
+    
+}
+.titleBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 20px;
+   
+}
+.tit1{
+    font-weight: 600;
+    font-size: 25px;
+    
+}
+.iconClose{
+   height: 100%;
+   padding: 0px;
+   margin: 0px;
+   background-color: transparent;
+   border: 0;
+   transition: transform 300ms linear ;
+}   
+.iconClose:hover{
+    transform: scale(1.2);
+}
+.nameForm{
+    font-weight: 600;
+    text-align: left;
+    margin: 10px 20px;
+    margin-bottom: 0;
+    /*background-color: rgba(156, 145, 145, 0.315); */
+    border-radius: 5px;
+    padding: 5px;
+
+} 
+.input{
+    margin: 0px 15px;
+    border: 1px solid rgb(201, 201, 201); 
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.input:focus{
+    outline-color: rgb(201, 201, 201); 
+}
+.save{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+.saveBut{
+    border-radius: 5px;
+    border: 1px solid rgb(201, 201, 201); 
+    padding: 5px 30px;
+    font-size: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(162, 162, 163, 0.445) 10%, hsla(0, 1%, 21%, 0.397) 90% );
+}
+.saveBut:hover{
+    background-color: rgba(43, 40, 40, 0.726);  ;
+}
+.bookBox{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.img{
+    height: 55%;
+    width: 75%;
+    margin: 5px auto;
+    padding: 15px;
+    
+}
+.books{
+    background-color: white;
+    border-radius: 15px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid rgb(201, 201, 201);
+    overflow: hidden;
+}
+.titBook{
+    font-weight: 700;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    box-sizing: content-box;
+    padding: 10px;
+    
+
+    
+}
+.miniBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.miniF{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.min{
+    width: 40%;
+}
+.mini{
+    width: 60%;
+}
+.but{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border-top: 1px solid rgb(201, 201, 201);
+    margin-top: 10px;
+    
+}
+.b{
+    
+    border: none;
+    background-color: white;
+    padding: 15px;
+    cursor: pointer;
+    width: 50%;
+    transition: background-color 300ms linear;
+    
+}
+.b:hover{
+    background-color:  rgba(197, 181, 181, 0.315);
+}
+.b1{
+    border-right:1px solid rgb(201, 201, 201);
+   
+    
+    
+}
+.o{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    
+
+}
+.conteiner{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   padding: 15px;
+}
+.authors{
+    border-radius: 5px;
+    background-color: rgba(165, 142, 142, 0.418);
+}

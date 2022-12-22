@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Bookshelf</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="mobilStyles.css">
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+        
+    </head>
+    <body class="body">
+        <div class="bookshelf">
+            <div class="fon">
+                <h1 class="titleBookshelf">Книжная полка</h1>
+            </div>
+        </div>
+        <div class="addButton">
+            <button onclick="add()" class="addBut cursor">Добавить книгу</button>
+        </div>
+
+        <div class="form" id="Form">
+            <div class="formBox" >
+                <div class="addForm" id="windowForm">
+                    <div class="titleBox">
+                        <h2 class="tit1">Добавить новую книгу</h2>
+                        <button onclick="closeMod()" id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
+                    </div>
+                    
+                            
+                    <label class="nameForm">Название</label>
+                    <input id="nameB" class="input"/>
+        
+                    <label class="nameForm">Автор/Авторы</label>
+                    <input id="nameA" class="input"/>
+
+                    <div class="miniBox">
+                        <div class="miniF min">
+                            <label class="nameForm ">Год издания</label>
+                            <input id="nameY" class="input  "/>
+                        </div>
+                        <div class="miniF mini">
+                            <label class="nameForm ">Ссылка на изображение</label>
+                            <input id="link  " class="input "/>
+                        </div>    
+                       
+                    </div>
+        
+                    
+                    <button onclick="saveBook()" class="saveBut save cursor">Добавить книгу</button>
+                 
+                                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form" id="FormNew">
+            <div class="formBox" >
+                <div class="addForm" id="windowForm">
+                    <div class="titleBox">
+                        <h2 class="tit1">Изменить данные</h2>
+                        <button onclick="closeNew()" id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
+                    </div>
+                    
+        
+                    <label class="nameForm">Название</label>
+                    <input id="nameB" class="input"/>
+        
+                    <label class="nameForm">Автор/Авторы</label>
+                    <input id="nameA" class="input"/>
+
+                    <div class="miniBox">
+                        <div class="miniF min" >
+                            <label class="nameForm miniYear ">Год издания</label>
+                            <input id="nameY miniYear" class="input "/>
+                        </div>
+                        <div class="miniF mini">
+                            <label class="nameForm ">Ссылка на изображение</label>
+                            <input id="link" class="input "/>
+                        </div>                        
+
+                    </div>
+        
+                    <button onclick="newBook()" class="saveBut save cursor">Обновить</button>
+                                                 
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="bookBox" > 
+            <div>
+                <div class="o" id="shelf" >
+                    
+                </div>
+                
+
+            </div>
+        </div>
+
+
+        
+
+
+        <script src="script.js"></script>
+
+    </body>
+    
+</html>
