@@ -1,5 +1,5 @@
 
-const books = [
+let books = [
     {
       
       title: 'Design Patterns: Elements of Reusable Object-Oriented Software ',
@@ -53,45 +53,85 @@ const books = [
 const myshelf = document.getElementById("shelf")
 const bookF = document.getElementById("Form")
 const bookNew = document.getElementById("FormNew")
-const mychange = document.getElementById("change")
-const mydel = document.getElementById("del")
+const mydel = document.getElementById("del-${i}")
 
 
-const booksJSON = localStorage.setItem('books')
-const saveJSON = JSON.parse(booksJSON)
 
-if (booksJSON){
-  books = JSON.parse(booksJSON)
-}
 renderBooks()
 
 
-function add(){
-  Form.style.display = "flex"
 
-}
-
-function closeMod(){
-  Form.style.display = "none"
-
-}
-
-function myChenge(){
+function chang(){
   FormNew.style.display = "flex"
+
 }
 
+const myadd = document.getElementById("add")
+myadd.addEventListener('click',add)
+
+function add(){
+  bookF.style.display = "flex"
+
+}
+
+const myclose = document.getElementById("closeModal")
+myclose.addEventListener('click',close)
+
+function close(){
+  bookF.style.display = "none"
+  
+
+}
+
+const mysav = document.getElementById("saveBook")
+mysav.addEventListener('click',Sav)
+
+function Sav(){
+  bookF.style.display = "none"
+  saveBook()  
+}
+
+const newclose = document.getElementById("closeNew")
+newclose.addEventListener('click',closeNew)
 
 function closeNew(){
   FormNew.style.display = "none"
 
 }
 
-function mydelete(i){
+const mycancellation = document.getElementById("cancellation")
+mycancellation.addEventListener('click',cancellation)
+
+function cancellation(){
+  FormNew.style.display = "none"
+
+}
+
+
+const newbook = document.getElementById("newBook")
+newbook.addEventListener('click',newB)
+
+function newB(){
+  FormNew.style.display = "none"
+
+}
+
+
+function del(i){
   books.splice (i,1)
   renderBooks()
   saveTo()
   
 }
+
+
+const booksJSON = localStorage.getItem('books')
+const sBooks = JSON.parse(booksJSON)
+
+if (booksJSON) {
+  books = sBooks
+}
+renderBooks()
 
 function renderBooks(){
 
@@ -107,13 +147,15 @@ function renderBooks(){
             <p  class="box"> ${book.year} </p>
           </div>
           <div class="but">
-            <button  onclick='myChenge()' class="b b1" id="change">Изменить</button>
-            <button onclick='mydelete(${i})' id="del" class="b">Удалить</button>
+            <button onclick="chang()"  class="b b1" >Изменить</button>
+            <button  onclick="del(${i})" class="b">Удалить</button>
           </div>
         </div>
     
     `
   })
+
+
 }
 
 
@@ -139,10 +181,12 @@ function saveBook() {
 
 }
 
-function saveTo(){
+function saveTo() {
   const booksJSON = JSON.stringify(books)
-  localStorage.setItem('books',booksJSON)
+  localStorage.setItem('books', booksJSON)
+
 }
+
 
 
 

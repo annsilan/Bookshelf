@@ -6,6 +6,7 @@
     cursor: pointer;
 }
 .bookshelf{
+    position: relative;
     height: 250px;
     background-image: url(Foto/book.jpg);
     box-sizing: content-box;
@@ -15,12 +16,13 @@
 
 }
 .fon{
+    position: relative;
     height: 250px;
     background-color: rgba(30, 30, 31, 0.514);
     box-sizing: content-box;
 }
 .titleBookshelf{
-    
+    margin: 0;
     color: white;
     font-size: 80px;
     font-family: 'Playfair Display', serif;
@@ -129,6 +131,7 @@
     font-size: 15px;
     cursor: pointer;
     background: linear-gradient(to right, rgba(162, 162, 163, 0.445) 10%, hsla(0, 1%, 21%, 0.397) 90% );
+    transition:  background-color 400ms linear ;
 }
 .saveBut:hover{
     background-color: rgba(43, 40, 40, 0.726);  ;
@@ -187,6 +190,9 @@
 .mini{
     width: 60%;
 }
+.minCance{
+    width: 50%;
+}
 .but{
     display: flex;
     justify-content: space-evenly;
@@ -206,7 +212,7 @@
     
 }
 .b:hover{
-    background-color:  rgba(197, 181, 181, 0.315);
+    background-color:  rgba(100, 95, 95, 0.397);
 }
 .b1{
     border-right:1px solid rgb(201, 201, 201);

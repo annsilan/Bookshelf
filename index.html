@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="addButton">
-            <button onclick="add()" class="addBut cursor">Добавить книгу</button>
+            <button id="add" class="addBut cursor">Добавить книгу</button>
         </div>
 
         <div class="form" id="Form">
@@ -25,7 +25,7 @@
                 <div class="addForm" id="windowForm">
                     <div class="titleBox">
                         <h2 class="tit1">Добавить новую книгу</h2>
-                        <button onclick="closeMod()" id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
+                        <button id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
                     </div>
                     
                             
@@ -48,7 +48,7 @@
                     </div>
         
                     
-                    <button onclick="saveBook()" class="saveBut save cursor">Добавить книгу</button>
+                    <button id="saveBook" class="saveBut save cursor">Добавить книгу</button>
                  
                                     
                 </div>
@@ -61,7 +61,7 @@
                 <div class="addForm" id="windowForm">
                     <div class="titleBox">
                         <h2 class="tit1">Изменить данные</h2>
-                        <button onclick="closeNew()" id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
+                        <button id="closeNew" id="closeModal" class="iconClose cursor" ><img src="Foto/icons8-macos-close-32.png" ></button>
                     </div>
                     
         
@@ -82,8 +82,10 @@
                         </div>                        
 
                     </div>
-        
-                    <button onclick="newBook()" class="saveBut save cursor">Обновить</button>
+                    <div class="miniBox ">
+                        <button id="cancellation" class="saveBut save cursor minCance">Отменить</button> 
+                        <button id="newBook" class="saveBut save cursor minCance">Обновить</button>
+                    </div>
                                                  
                 </div>
                 
