@@ -257,7 +257,7 @@ function edit(i){
 }
 
 const myEditBook = document.getElementById('editBook')
-
+myEditBook.addEventListener('click', upDate)
 function upDate(i, myupdate){
   const book = books.find((b) => {
     return b.i === i
