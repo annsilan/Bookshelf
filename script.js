@@ -253,7 +253,7 @@ function edit(i){
    
   renderBooks() 
   saveTo()
-  clearForm()
+
 }
 
 const myEditBook = document.getElementById('editBook')
@@ -271,6 +271,7 @@ function upDate(i, myupdate){
   let linkEdit = document.getElementById("LinkUpDate").value 
 
   const newBook = {
+
     title: nameBedit,
     authors: nameAedit,
     year: nameYedit,
@@ -278,8 +279,7 @@ function upDate(i, myupdate){
   }
 
   if (nameBedit.length == 0) {
-    document.getElementById('nameUpDate').focus()
-    document.getElementById('nameUpDate').setAttribute('placeholder')
+    
   } else if (nameBedit.length > 0) {
     books.splice(i, 1, newBook) 
     document.getElementById('edit-${index}').removeEventListener('click', myupdate) 
