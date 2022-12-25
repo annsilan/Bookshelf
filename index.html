@@ -42,13 +42,13 @@
                         </div>
                         <div class="miniF mini">
                             <label class="nameForm ">Ссылка на изображение</label>
-                            <input id="link  " class="input "/>
+                            <input id="link  " class="input" />
                         </div>    
                        
                     </div>
         
                     
-                    <button id="saveBook" class="saveBut save cursor">Добавить книгу</button>
+                    <button id="saveBook" class="saveBut save cursor" >Добавить книгу</button>
                  
                                     
                 </div>
@@ -83,19 +83,23 @@
 
                     </div>
                     <div class="miniBox ">
-                        <button id="cancellation" class="saveBut save cursor minCance">Отменить</button> 
-                        <button id="newBook" class="saveBut save cursor minCance">Обновить</button>
+                        <button id="edit-${index}" class="saveBut save cursor minCance">Обновить</button>
+                        <input type="hidden" id="editBook"/>
+                        <button id="cancellation" class="saveBut save cursor minCance">Отменить</button>
                     </div>
                                                  
                 </div>
                 
             </div>
         </div>
+        
+
 
         <div class="bookBox" > 
             <div>
                 <div class="o" id="shelf" >
                     
+
                 </div>
                 
 

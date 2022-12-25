@@ -142,10 +142,11 @@
 }
 
 .img{
-    height: 55%;
+    
     width: 75%;
     margin: 5px auto;
     padding: 15px;
+    
     
 }
 .books{
@@ -160,6 +161,7 @@
 }
 .titBook{
     font-weight: 700;
+    
 }
 .box{
     display: flex;
@@ -231,8 +233,182 @@
    flex-direction: column;
    justify-content: space-around;
    padding: 15px;
+   height: 100%;
 }
 .authors{
     border-radius: 5px;
     background-color: rgba(165, 142, 142, 0.418);
+    
 }
+.boxb{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+@media (max-width:1400px) {
+    .o{
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+    .b{
+        font-size: 17px;
+    }
+    .boxb{
+        font-size: 20px;
+    }
+}
+@media (max-width:912px){
+    .o{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .boxb{
+        font-size: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+    }
+    .b{
+        font-size: 35px;
+    }
+    .addBut{
+        font-size: 35px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+@media (max-width:820px) {
+    .boxb{
+        font-size: 30px;
+    }   
+    .b{
+        font-size: 30px;
+    }
+    .addBut{
+        font-size: 35px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+@media (max-width:768px)  {
+    .o{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .boxb{
+        font-size: 30px;
+    }
+    .b{
+        font-size: 25px;
+    }
+    .addBut{
+        font-size: 25px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+@media (max-width: 540px) {
+    .boxb{
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+    }
+    .b{
+        font-size: 20px;
+    }
+    .addBut{
+        font-size: 25px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+@media (max-width: 414px) {
+    .o{
+        display: grid;
+        grid-template-columns: repeat(1,minmax(0,1fr));
+    }
+    .boxb{
+        font-size: 30px;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+    }
+    .boxb{
+        font-size: 25px;
+    }
+    .b{
+        font-size: 25px;
+    }
+    .addButton{
+        display: flex;
+        justify-content: center;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+    
+}
+@media (max-width: 375px ){
+    .titleBookshelf{
+        font-size: 55px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+@media (max-width: 360px ) {
+    .titleBookshelf{
+        font-size: 60px;
+    }
+    .addButton{
+        display: flex;
+        justify-content: center;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    .boxb{
+        font-size: 20px;
+    }
+    .b{
+        font-size: 20px;
+    }
+    .addForm {
+        width: 80%;
+    }
+    .minCance {
+        width: 40%;
+    }
+}
+
+/*<input type="hidden" id="editBook"/>*/
