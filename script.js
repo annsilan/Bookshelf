@@ -240,10 +240,10 @@ function edit(i){
   const index = books.indexOf(book) 
 
 
-  document.getElementById("nameUpDate").value = books[index].title,
-  document.getElementById("authorUpDate").value = books[index].authors,
-  document.getElementById("yearUpDate").value = books[index].year,
-  document.getElementById("LinkUpDate").value = books[index].image
+  books[index].title = document.getElementById("nameUpDate").value,
+  books[index].authors = document.getElementById("authorUpDate").value,
+  books[index].year = document.getElementById("yearUpDate").value,
+  books[index].image = document.getElementById("LinkUpDate").value 
 
 
   const myupdate = () => upDate(i, myupdate)
@@ -278,11 +278,11 @@ function upDate(i, myupdate){
     image: linkEdit,
   }
 
-  if (nameBedit.length == 0) {
+  if (nameBValue.length == 0) {
     
-  } else if (nameBedit.length > 0) {
+  } else if (nameBValue.length > 0) {
     books.splice(index, 1, newBook) 
-    document.getElementById('edit-${index}').removeEventListener('click', myupdate) 
+    document.getElementById('edit-${i}').removeEventListener('click', myupdate) 
 
 }
    
