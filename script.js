@@ -65,7 +65,7 @@ let books = [
 const myshelf = document.getElementById("shelf")
 const bookF = document.getElementById("Form")
 const bookNew = document.getElementById("FormNew")
-const mydel = document.getElementById("del${index}")
+const mydel = document.getElementById("del${i}")
 
 
 
@@ -122,9 +122,9 @@ function cancellation(){
 
 }
 
-function del(index){
+function del(i){
   
-  books.splice (index,1)
+  books.splice (i,1)
   renderBooks()
   saveTo()
 
@@ -133,7 +133,9 @@ function del(index){
     return true
   }else{
     return false
+    
   }
+  
 
 }
 
@@ -149,7 +151,7 @@ renderBooks()
 function renderBooks(){
 
   shelf.innerHTML = ""
-  books.forEach((book, index) => {
+  books.forEach((book, i) => {
     shelf.innerHTML += `
     
         <div  class="books" >
@@ -169,7 +171,7 @@ function renderBooks(){
           <div class="but">
             <button onclick="change()"  class="b b1" >Изменить</button>
             
-            <button onclick="del(${index}) " class="b">Удалить</button>
+            <button onclick="del(${i}) " class="b">Удалить</button>
           </div>
         </div>
     
@@ -225,33 +227,48 @@ function saveBook() {
   Form.style.display = "none"
 }
 
-const myedit = document.getElementById('edit-${index}')
+const myedit = document.getElementById('edit-${i}')
 myedit.addEventListener('click',edit)
 
 
-function edit(index){
-
-  let book = books.find((b) => {
-    return b.index === index
+function edit(i){
+  const book = books.find((b) =>{
+    return b.i === i
   })
-  
-  /*const index = books.indexOf*/
-
-  document.getElementById("nameUpDate").value = book[index].title 
-  document.getElementById("authorUpDate").value = book[index].authors,
-  document.getElementById("yearUpDate").value = book[index].year,
-  document.getElementById("LinkUpDate").value = book[index].image,
 
 
+  const index = books.indexOf(book) 
 
 
+  document.getElementById("nameUpDate").value = books[index].title,
+  document.getElementById("authorUpDate").value = books[index].authors,
+  document.getElementById("yearUpDate").value = books[index].year,
+  document.getElementById("LinkUpDate").value = books[index].image
+
+
+  const myupdate = () => upDate(i, myupdate)
+  document.getElementById('editBook-${i}').addEventListener('click', myupdate)
+   
   bookNew.style.display = "none"
-
+   
+  renderBooks() 
+  saveTo()
+  clearForm()
 }
 
 const myEditBook = document.getElementById('editBook')
 
-function upDate(index){
+function upDate(i, myupdate){
+  const book = books.find((b) => {
+    return b.i === i
+  })  
+
+  const index = books.indexOf(book) 
+
+  let nameBedit = document.getElementById("nameUpDate").value
+  let nameAedit = document.getElementById("authorUpDate").value
+  let nameYedit = document.getElementById("yearUpDate").value
+  let linkEdit = document.getElementById("LinkUpDate").value 
 
   const newBook = {
     title: nameBedit,
@@ -260,29 +277,16 @@ function upDate(index){
     image: linkEdit,
   }
 
-  /*const index = books.indexOf(book) */
-
-  let nameBedit = document.getElementById("nameUpDate").value
-  let nameAedit = document.getElementById("authorUpDate").value
-  let nameYedit = document.getElementById("yearUpDate").value
-  let linkEdit = document.getElementById("LinkUpDate").value 
-
-  const book = books.find((b) =>{
-    return b.index === index
-  })
-
-  
-  if (nameBValue.length == 0) {
+  if (nameBedit.length == 0) {
     document.getElementById('nameUpDate').focus()
     document.getElementById('nameUpDate').setAttribute('placeholder')
-  } else if (nameBValue.length > 0) {
-    books.splice(index, 1, newBook) 
-    document.getElementById('edit-${index}').removeEventListener('click', upDate) 
+  } else if (nameBedit.length > 0) {
+    books.splice(i, 1, newBook) 
+    document.getElementById('edit-${index}').removeEventListener('click', myupdate) 
 
 }
-
+   
 }
-
 function saveTo() {
   const booksJSON = JSON.stringify(books)
   localStorage.setItem('books', booksJSON)
