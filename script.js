@@ -281,7 +281,7 @@ function upDate(i, myupdate){
   if (nameBedit.length == 0) {
     
   } else if (nameBedit.length > 0) {
-    books.splice(i, 1, newBook) 
+    books.splice(index, 1, newBook) 
     document.getElementById('edit-${index}').removeEventListener('click', myupdate) 
 
 }
