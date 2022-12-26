@@ -53,7 +53,7 @@ let books = [
       year: 2003,
       
       image: 'Foto/roberts.jpg'
-    }
+    },
     
       
     
@@ -95,7 +95,7 @@ mysav.addEventListener('click',Sav)
 
 function Sav(){
   bookF.style.display = "none"
-  saveBook()  
+  saveBook()
 }
 
 
@@ -153,7 +153,6 @@ function renderBooks(){
   shelf.innerHTML = ""
   books.forEach((book, i) => {
     shelf.innerHTML += `
-    
         <div  class="books" >
           <div class="conteiner" >
             <div class="boxb">
@@ -164,9 +163,6 @@ function renderBooks(){
               <p  class="box authors"> ${book.authors} </p>
               <p  class="box year"> ${book.year} </p>
             </div>
-
-            
-            
           </div>
           <div class="but">
             <button onclick="change()"  class="b b1" >Изменить</button>
@@ -176,24 +172,26 @@ function renderBooks(){
         </div>
     
     `
+   
   })
 
 
 }
 
 function clearForm() {
-  document.getElementById('nameB').value = ""
-  document.getElementById('nameA').value = ""
-  document.getElementById('nameY').value = ""
-  document.getElementById('link').value = ""
+  document.getElementById("nameB").value = ""
+  document.getElementById("nameA").value = ""
+  document.getElementById("nameY").value = ""
+  document.getElementById("link").value = ""
 }
+
 
 function saveBook() {
   
-  const nameBValue = document.getElementById('nameB').value
-  const nameAValue = document.getElementById('nameA').value
-  const nameYValue = document.getElementById('nameY').value
-  const linkValue = document.getElementById('link').value
+  const nameBValue = document.getElementById("nameB").value
+  const nameAValue = document.getElementById("nameA").value
+  const nameYValue = document.getElementById("nameY").value
+  const linkValue = document.getElementById("link").value
   
   
   if (nameBValue.length === 0) {
@@ -212,13 +210,14 @@ function saveBook() {
     return
   }
   
+  
   const book = {
     title: nameBValue,
     authors: nameAValue,
     year: nameYValue,
     image: linkValue,
-
   }
+
   books.push(book)
   renderBooks() 
   saveTo()
@@ -239,11 +238,10 @@ function edit(i){
 
   const index = books.indexOf(book) 
 
-
   books[index].title = document.getElementById("nameUpDate").value,
   books[index].authors = document.getElementById("authorUpDate").value,
   books[index].year = document.getElementById("yearUpDate").value,
-  books[index].image = document.getElementById("LinkUpDate").value 
+  books[index].image = document.getElementById("LinkUpDate").value
 
 
   const myupdate = () => upDate(i, myupdate)
@@ -251,24 +249,44 @@ function edit(i){
    
   bookNew.style.display = "none"
    
-  renderBooks() 
-  saveTo()
 
 }
 
-const myEditBook = document.getElementById('editBook')
+
+const myEditBook = document.getElementById('editBook-${i}')
 myEditBook.addEventListener('click', upDate)
-function upDate(i, myupdate){
+
+  
+
+function upDate(i, myupdate){  
   const book = books.find((b) => {
     return b.i === i
   })  
 
   const index = books.indexOf(book) 
 
+  
+  
+  input.value =  nameB
+  input.value =  nameA
+  input.value = nameY
+  input.value = link
+
+  input.myupdate = function() {
+    document.getElementById('edit-${i}').innerHTML = input.value;
+  }
+  
+
+  value = document.getElementById("nameUpDate")
+  value = document.getElementById("authorUpDate")
+  value = document.getElementById("yearUpDate")
+  value = document.getElementById("LinkUpDate")
+
+
   let nameBedit = document.getElementById("nameUpDate").value
   let nameAedit = document.getElementById("authorUpDate").value
   let nameYedit = document.getElementById("yearUpDate").value
-  let linkEdit = document.getElementById("LinkUpDate").value 
+  let linkEdit = document.getElementById("LinkUpDate").value
 
   const newBook = {
 
@@ -277,16 +295,24 @@ function upDate(i, myupdate){
     year: nameYedit,
     image: linkEdit,
   }
+  
 
-  if (nameBValue.length == 0) {
-    
-  } else if (nameBValue.length > 0) {
-    books.splice(index, 1, newBook) 
-    document.getElementById('edit-${i}').removeEventListener('click', myupdate) 
+  if (nameBedit.length == 0) {
+    document.getElementById('nameUpDate').focus()
+    document.getElementById('nameUpDate').setAttribute('nameUpDate',value)
+  } else if (nameBedit.length > 0) {
+    books.splice(i, 1, newBook) 
+    document.getElementById('edit-${i}').removeAttribute('click', myupdate) 
 
 }
-   
+
+renderBooks() 
+saveTo()
+clearForm()
+
 }
+
+
 function saveTo() {
   const booksJSON = JSON.stringify(books)
   localStorage.setItem('books', booksJSON)
