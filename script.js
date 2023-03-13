@@ -100,11 +100,11 @@ function Sav(){
 
 
 
-function change(){
+/*function change(){
 
   bookNew.style.display = "flex"
 
-}
+}*/
 
 const newclose = document.getElementById("closeNew")
 newclose.addEventListener('click',closeNew)
@@ -124,18 +124,13 @@ function cancellation(){
 
 function del(i){
   
-  books.splice (i,1)
-  renderBooks()
-  saveTo()
-
-
   if (confirm("Вы действительно хотите удалить книгу?")) {
-    return true
+    books.splice (i,1)
   }else{
     return false
-    
   }
-  
+  renderBooks()
+  saveTo()
 
 }
 
@@ -165,7 +160,7 @@ function renderBooks(){
             </div>
           </div>
           <div class="but">
-            <button onclick="change()"  class="b b1" >Изменить</button>
+            <button onclick="change(${i})"  class="b b1" >Изменить</button>
             
             <button onclick="del(${i}) " class="b">Удалить</button>
           </div>
@@ -226,89 +221,75 @@ function saveBook() {
   Form.style.display = "none"
 }
 
-const myedit = document.getElementById('edit-${i}')
-myedit.addEventListener('click',edit)
 
 
-function edit(i){
-  const book = books.find((b) =>{
-    return b.i === i
-  })
+function change (i){
+
+  bookNew.style.display = "flex"
+
+document.getElementById("nameUpDate").value =   books[i].title 
+document.getElementById("authorUpDate").value = books[i].authors 
+document.getElementById("yearUpDate").value = books[i].year
+document.getElementById("LinkUpDate").value = books[i].image 
 
 
-  const index = books.indexOf(book) 
 
-  books[index].title = document.getElementById("nameUpDate").value,
-  books[index].authors = document.getElementById("authorUpDate").value,
-  books[index].year = document.getElementById("yearUpDate").value,
-  books[index].image = document.getElementById("LinkUpDate").value
+const myupdate = () => change(i, myupdate)
+document.getElementById('edit').addEventListener('click', myupdate)
 
 
-  const myupdate = () => upDate(i, myupdate)
-  document.getElementById('editBook-${i}').addEventListener('click', myupdate)
-   
-  bookNew.style.display = "none"
-   
 
 }
 
+const myedit = document.getElementById('edit')
+myedit.removeEventListener('click',edite)
 
-const myEditBook = document.getElementById('editBook-${i}')
-myEditBook.addEventListener('click', upDate)
 
+function edite(i, myupdate){  
+
+
+    let title = document.getElementById("nameUpDate").value
+    let authors = document.getElementById("authorUpDate").value
+    let year = document.getElementById("yearUpDate").value
+    let image = document.getElementById("LinkUpDate").value
+
+    const newBook = {
+
+      title,
+      authors,
+      year,
+      image
+      }
   
 
-function upDate(i, myupdate){  
-  const book = books.find((b) => {
-    return b.i === i
-  })  
-
-  const index = books.indexOf(book) 
-
   
-  
-  input.value =  nameB
-  input.value =  nameA
-  input.value = nameY
-  input.value = link
-
-  input.myupdate = function() {
-    document.getElementById('edit-${i}').innerHTML = input.value;
-  }
-  
-
-  value = document.getElementById("nameUpDate")
-  value = document.getElementById("authorUpDate")
-  value = document.getElementById("yearUpDate")
-  value = document.getElementById("LinkUpDate")
-
-
-  let nameBedit = document.getElementById("nameUpDate").value
-  let nameAedit = document.getElementById("authorUpDate").value
-  let nameYedit = document.getElementById("yearUpDate").value
-  let linkEdit = document.getElementById("LinkUpDate").value
-
-  const newBook = {
-
-    title: nameBedit,
-    authors: nameAedit,
-    year: nameYedit,
-    image: linkEdit,
-  }
-  
-
-  if (nameBedit.length == 0) {
+  if (title.length === 0) {
     document.getElementById('nameUpDate').focus()
     document.getElementById('nameUpDate').setAttribute('nameUpDate',value)
-  } else if (nameBedit.length > 0) {
+  } else if (title.length > 0) {
     books.splice(i, 1, newBook) 
-    document.getElementById('edit-${i}').removeAttribute('click', myupdate) 
+    document.getElementById('edit').removeEventListener('click', myupdate) 
+  
+  }
 
-}
 
-renderBooks() 
-saveTo()
-clearForm()
+
+  
+  // input.myupdate = function() {
+  //   document.getElementById('edit').innerHTML = input.value;
+  // }
+  
+
+  // value = document.getElementById("nameUpDate")
+  // value = document.getElementById("authorUpDate")
+  // value = document.getElementById("yearUpDate")
+  // value = document.getElementById("LinkUpDate")
+  bookNew.style.display = "none"
+  renderBooks() 
+  saveTo()
+  clearForm()
+  
+  
 
 }
 
