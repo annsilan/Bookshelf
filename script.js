@@ -59,19 +59,13 @@ let books = [
     
 
 ]
-
-  
-    
+   
 const myshelf = document.getElementById("shelf")
 const bookF = document.getElementById("Form")
 const bookNew = document.getElementById("FormNew")
 const mydel = document.getElementById("del${i}")
 
-
-
 renderBooks()
-
-
 
 const myadd = document.getElementById("add")
 myadd.addEventListener('click',add)
@@ -99,12 +93,6 @@ function Sav(){
 }
 
 
-
-/*function change(){
-
-  bookNew.style.display = "flex"
-
-}*/
 
 const newclose = document.getElementById("closeNew")
 newclose.addEventListener('click',closeNew)
@@ -221,10 +209,7 @@ function saveBook() {
   Form.style.display = "none"
 }
 
-
-
 function change (i){
-
   bookNew.style.display = "flex"
 
 document.getElementById("nameUpDate").value =   books[i].title 
@@ -232,12 +217,8 @@ document.getElementById("authorUpDate").value = books[i].authors
 document.getElementById("yearUpDate").value = books[i].year
 document.getElementById("LinkUpDate").value = books[i].image 
 
-
-
-const myupdate = () => change(i, myupdate)
+const myupdate = () => edite(i, myupdate)
 document.getElementById('edit').addEventListener('click', myupdate)
-
-
 
 }
 
@@ -246,20 +227,24 @@ myedit.removeEventListener('click',edite)
 
 
 function edite(i, myupdate){  
+  const book = books.find((b)=>{
+    return b.i ===i
+  })
 
+  const index = books.indexOf(book)
 
-    let title = document.getElementById("nameUpDate").value
-    let authors = document.getElementById("authorUpDate").value
-    let year = document.getElementById("yearUpDate").value
-    let image = document.getElementById("LinkUpDate").value
+  let title = document.getElementById("nameUpDate").value
+  let authors = document.getElementById("authorUpDate").value
+  let year = document.getElementById("yearUpDate").value
+  let image = document.getElementById("LinkUpDate").value
 
-    const newBook = {
+  const newBook = {
 
-      title,
-      authors,
-      year,
-      image
-      }
+    title,
+    authors,
+    year,
+    image
+  }
   
 
   
@@ -272,23 +257,14 @@ function edite(i, myupdate){
   
   }
 
-
-
-  
-  // input.myupdate = function() {
-  //   document.getElementById('edit').innerHTML = input.value;
-  // }
   
 
-  // value = document.getElementById("nameUpDate")
-  // value = document.getElementById("authorUpDate")
-  // value = document.getElementById("yearUpDate")
-  // value = document.getElementById("LinkUpDate")
-  bookNew.style.display = "none"
+  
   renderBooks() 
   saveTo()
   clearForm()
   
+  bookNew.style.display = "none"
   
 
 }
